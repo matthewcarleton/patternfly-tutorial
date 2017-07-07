@@ -10,78 +10,29 @@
 @img-path: "../node_modules/patternfly/dist/img";
 
 // Put your styles here
-
-div.hidden-nav .nav-pf-vertical { top: 0; }
-div.hidden-nav .nav-pf-secondary-nav { top: 0; }
-div.hidden-nav { margin-top: -60px; }
-div.hidden-nav .navbar-pf-vertical { display: none; }
-
-.navbar-brand {line-height: 35px;} /* without an icon in the masthead, the logo sits too high relative to other elements */
-.toolbar-pf-results-none {border: none;}
-.toolbar-pf-results-none > div { display: none;}
+/* Composer */
+.navbar-brand {line-height: @navbar-pf-vertical-navbar-brand-min-height;} /* without an icon in the masthead, the logo sits too high relative to other elements */
 [data-toggle] {cursor: pointer;}
-// .list-view-pf-additional-info-item .label {margin: .5em 0;}
-//
-// .cmpsr-section-header{
-//   background: @color-pf-black-150;
-//   padding:15px 15px;
-//   border-top: 1px solid @color-pf-black-300;
-//   border-bottom: 1px solid @color-pf-black-300;
-// }
-// .cmpsr-section-heading{
-//   font-weight: 700;
-//   margin: 0;
-// }
-//
-// .fa.cmpsr-list-view-icon{
-//   font-size: 1.4em;
-//   width: 30px;
-//   height: 30px;
-//   line-height: 28px;
-//     &--selected{
-//       border: 2px solid @color-pf-blue-300;
-//     }
-// }
 
-// .cmpsr-view-pf-main-info{
-//   padding: 10px 0;
-//   align-items: start;
-//   display: flex;
-//   flex: 1;
-//   min-width: 0;
-// }
 /* This is added for the export dialog so that the contents have higher contrast */
 textarea.form-control[readonly] {
   background-color: inherit;
   color: inherit;
 }
 
-// .tab-container {
-//   padding: 15px 0;
-// }
-
-.cmpsr-edit-actions {
-  padding: 8px 0 8px 15px;
+/* Recipe Edit page header */
+.cmpsr-header__actions {
+  padding: @breadcrumb-padding-vertical 0 @breadcrumb-padding-vertical @breadcrumb-padding-horizontal
 }
-.cmpsr-title-summary {
+.cmpsr-header__title {
   display: flex;
-  flex-direction: row;
   align-items: baseline;
-  margin-top: 20px;
+  margin-top: @line-height-computed;
 }
- .cmpsr-title-summary__item {
+.cmpsr-header__title__item {
    margin-right: 10px;
    margin-top: 0;
  }
-
-/* toolbar */
-
-.toolbar-pf-actions .toolbar-pf-filter.form-group {
-  padding-left: 20px;
-}
-.toolbar-pf-actions .form-group:first-child {
-  padding-left: 0;
-}
 
 /* pagination */
 
@@ -102,10 +53,12 @@ textarea.form-control[readonly] {
   margin-left: 5px;
 }
 
-/* sidebar toolbar */
-.toolbar-pf-actions {min-height: 28px;}
+/* sidebar */
+// If we use the grid, then we might be able to eliminate a lot of this, since
+// the only reason I think it's here is to deal with the fact that a background
+// color is applied to the sidebar.
 .sidebar-pf .toolbar-pf-actions .toolbar-pf-filter {width:auto;}
-.sidebar-pf{
+.sidebar-pf {
     padding:0;
     .toolbar-pf{
       margin: 0 -20px;
@@ -125,156 +78,55 @@ textarea.form-control[readonly] {
     }
 }//.sidebar-pf
 
-.card-pf-body .dl-horizontal dd {
-  margin-left: 50%;
-}
-.card-pf-body .dl-horizontal dt {
-  width: 45%;
-}
-/*.card-view-pf {
-  margin: 0 -10px;
-}*/
-.card-view-pf .card {
-  border: 1px solid transparent;
-  height: auto;
-  margin: 0 10px 10px;
-  width: auto;
-  text-align: left;
-  float: none;
-}
-.card-pf-title {
-  font-size: 14px;
-  margin: 10px 0;
-}
+// .cmpsr-recipe-inputs .toolbar-pf-results h5,
+// .cmpsr-recipe-inputs .toolbar-pf-results p,
+// .cmpsr-recipe-inputs .toolbar-pf-results ul {
+//   line-height: (@grid-gutter-width/1.5);
+// }
+// Spacing is weird for filters in the inputs panel but it's also weird in the
+// other panel when contents don't fit, so just commenting this out for now.
 
 /*sidebar list view*/
-
-// .cmpsr-list-view-viewskinny, #cmpsr-recipe-inputs .alert {
-//   margin-left: -5px;
-//   margin-right: -5px;
-// }
-
-#cmpsr-recipe-inputs .alert {
-  // position: relative;
-  // top: 10px;
-  margin-top: 20px;
+.cmpsr-recipe__inputs .list-pf {
+  margin-top: @line-height-computed;
+  // value for original list view is margin-top: 30px; Should we use that here?
 }
-
-#compsr-inputs a[disabled] {
-  display: none;
+.cmpsr-recipe__inputs .alert {
+  // margin-top: @line-height-computed; //this is the value applied to margin-bottom for bs alerts
+  // But should we do something like this where we take the margin-top of the list / 2
+  // and shift it down, so that it doesn't take up that much extra space
+  position: relative;
+  top: calc(@line-height-computed / 2);
 }
-//
-// .cmpsr-list-view-viewskinny.list-view-pf .list-group-item {
-//   padding: 0 10px;
-// }
-//
-// .cmpsr-list-view-viewskinny.list-view-pf .list-view-pf-left {
-//   padding-right: 10px;
-// }
-//
-// .cmpsr-list-view-viewskinny .list-view-pf-main-info {
-//   align-items: flex-start;
-// }
-// .cmpsr-list-view-viewskinny.list-view-pf .list-view-pf-description {
-//   display: block;
-// }
-// .cmpsr-list-view-viewskinny.list-view-pf .list-group-item-heading,
-// .cmpsr-list-view-viewskinny.list-view-pf .list-group-item-text {
-//   float: none;
-//   width: auto;
-// }
-
-#cmpsr-recipe-inputs .toolbar-pf-results h5,
-#cmpsr-recipe-inputs .toolbar-pf-results p,
-#cmpsr-recipe-inputs .toolbar-pf-results ul {
-  line-height:26.67px;
-}
-
-.toolbar-pf-results .list-inline {
-  margin-bottom: 5px;
-}
-
-#cmpsr-recipe-inputs .popover-content {
-  white-space: nowrap;
-}
-
 
 /*List View*/
 .blank-slate-pf {margin-top:30px;}
 
-// @media (min-width: 992px) {
-//   .list-view-pf .list-group-item-heading {
-//       flex: 1 1 calc(40% - 20px);
-//       float: none;
-//       font-size: 12px;
-//       margin: 0 20px 0 0;
-//       overflow: hidden;
-//       text-overflow: ellipsis;
-//       white-space: nowrap;
-//       width: auto;
-//   }
-//   .list-view-pf .list-group-item-text {
-//       flex: 1 1 calc(60% - 40px);
-//       float: none;
-//       margin: 0 40px 0 0;
-//       width: auto;
-//   }
-// }
-.cmpsr-dependency-flag {
-  margin-right: 20px;
-}
-.list-group-item-container dd {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+/* Expanded list item contents (i.e. component summary) */
+.list-pf-container .list-pf {
+   max-height: 300px;
+   overflow: auto;
+ }
 
-/* Nested list view */
-.cmpsr-summary-listview .list-group {
-  margin: 0;
-}
-.cmpsr-summary-listview{
-  margin-top: 15px;
-}
-.cmpsr-summary-listview:first-child {
-  margin-top: 0;
-}
-// .cmpsr-summary-listview .list-view-pf-main-info {
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-// }
-// .cmpsr-summary-listview .list-view-pf-left .fa.list-view-pf-icon-sm {
-//   border: none;
-//   height: auto;
-//   width: auto;
-//   line-height: inherit;
-//   font-size: 1.2em;
-// }
-// .cmpsr-summary-listview .list-view-pf-left .fa.list-view-pf-icon-sm:before {
-//   line-height: normal;
-// }
+ .list-pf-container dd {
+   overflow: hidden;
+   text-overflow: ellipsis;
+ }
 
-/* Recipe contents Tabs */
+/* Recipe contents */
 
-#cmpsr-recipe-list-edit{
+.cmpsr-recipe--edit{
   padding: 0;
-  // .nav-tabs{
-  //   margin-top: 15px;
-  // }
-  // .list-view-pf-view{
-  //   margin: 15px 0;
-  // }
+
   .panel-default{
     border-left: none;
   }
   .panel-heading{
     margin-bottom: -10px;
   }
-  .toolbar-pf{
-    margin:0 -15px;
-  }
-}/*#cmpsr-recipe-list-edit*/
+}
 
-.cmpsr-list-recipe-edit {
+.cmpsr-recipe__list {
   .list-pf-main-content {
     flex-basis: initial;
   }
@@ -284,57 +136,37 @@ textarea.form-control[readonly] {
       justify-content: flex-end;
   }
 }
-/* Recipe Contents Accordion */
-
-#cmpsr-recipe-contents {
-    margin: 20px 0;
-}
-#cmpsr-recipe-list-edit #cmpsr-recipe-contents {
-  margin: -1px -21px;
-}
-.panel-body .list-view-pf-view {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-// .panel-body .toolbar-pf { margin: -15px -15px 15px; } removing this now that panels are used
-.panel-body .toolbar-pf-actions {min-height:auto;}
-// .panel-body .form-group {padding-left: 0; padding-right:0; border:none;}
-
-
-/*Component details view*/
-.cmpsr-compon-details .close {float:none;}
-.cmpsr-compon-details .form-horizontal {
-  margin: 15px 0;
-}
-.cmpsr-compon-details .blank-slate-pf {
-  margin-top: 0;
-  padding: 0;
-}
-
-.list-group-item-container .cmpsr-list-view-viewskinny {
-   max-height: 300px;
-   overflow: auto;
- }
 
 /*Component details*/
-#cmpsr-recipe-details-edit {
+.cmpsr-recipe__details .close {float:none;}
+.cmpsr-recipe__details .form-horizontal {
+  margin: 15px 0;
+}
+.cmpsr-recipe__details .blank-slate-pf {
+  margin-top: 0;
+  padding: 0;
+} // TODO: replace .blank-slate-pf with custom styles, since this isn't really a blank slate
+
+.cmpsr-recipe__details--edit {
   border-top: 1px solid #d1d1d1;
 }
-#cmpsr-recipe-details {
+.cmpsr-recipe__details--view {
   padding: 10px 35px;
 }
 
-
 /* Recipe details page */
+// .list-group-item__separator is used on the Revisions tab
+.list-view-pf .list-group-item__separator, .list-view-pf .list-group-item__separator:hover {
+  background-color: #f7f7f7;
+}
+.list-view-pf .list-group-item__separator .list-view-pf-main-info {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
-// .list-view-pf .list-group-item__separator, .list-view-pf .list-group-item__separator:hover {
-//   background-color: #f7f7f7;
-// }
-// .list-view-pf .list-group-item__separator .list-view-pf-main-info {
-//   padding-top: 0;
-//   padding-bottom: 0;
-// }
-.cmpsr-list-pf{
+/* compacted list view */
+// used in sidebar and expanded list items
+.cmpsr-list-pf__compacted {
     margin-bottom:20px;
     .list-pf-item{
       background: @color-pf-white;
@@ -344,6 +176,9 @@ textarea.form-control[readonly] {
     }
     .list-pf-container{
       padding:10px;
+      .list-pf-container & {
+        border-top-width: 0; // needed for when list is displayed in expanded list item (is this a bug with PF css?)
+      }
     }
 }
 
