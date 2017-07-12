@@ -56,7 +56,6 @@ textarea.form-control[readonly] {
    padding-top: 60px;
    .panel{
     padding: 0;
-     border: none;
      box-shadow: none;
      margin-bottom:0;
      min-height: min-content;
@@ -85,6 +84,7 @@ textarea.form-control[readonly] {
 }
 .cmpsr-recipe--edit{
   grid-area: edit;
+  border-left:none;
 }
 
 /* pagination */
@@ -117,7 +117,9 @@ textarea.form-control[readonly] {
       margin: 0 -20px;
       padding-top: 14px;
     }
-
+    .toolbar-pf-actions, .toolbar-pf-results{
+      padding:0 20px;
+    }
     .panel-heading{
       padding:10px 15px;
     }
