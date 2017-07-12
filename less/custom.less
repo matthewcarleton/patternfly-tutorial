@@ -54,12 +54,22 @@ textarea.form-control[readonly] {
    height: 100vh;
    overflow: hidden;
    padding-top: 60px;
-  //  border: 1px solid @color-pf-black-300;
    .panel{
     padding: 0;
      border: none;
      box-shadow: none;
      margin-bottom:0;
+     min-height: min-content;
+     overflow: auto;
+     position: relative;
+  }
+   .panel-body{
+     min-height: min-content;
+     overflow: auto;
+
+   }
+   .panel-heading{
+     position: sticky;
    }
  }
 .cmpsr-header__actions{
@@ -76,19 +86,11 @@ textarea.form-control[readonly] {
 .cmpsr-recipe__inputs{
   grid-area: inputs;
   grid-row: 3;
-  overflow: auto;
-  min-height: min-content;
-  // display:grid;
-  // grid-template-rows: auto 1fr;
-  // overflow: scroll;
-  //   .panel-body{
-  //     grid-row-start: 2;
-  //     min-height: min-content;
-  //     overflow-y: auto;
-  //   }
 }
 .cmpsr-recipe--edit{
   grid-area: edit;
+  position: relative;
+
 }
 
 /* pagination */
