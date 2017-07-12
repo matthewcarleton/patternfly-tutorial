@@ -39,8 +39,8 @@
         </button>
         <a href="/" class="navbar-brand">
         <!-- <img class="navbar-brand-name" src="/logo-header.svg" alt="" width="220">   -->
-    </a>
-  </div>
+        </a>
+      </div>
     <nav class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right navbar-iconic">
         <li class="dropdown">
@@ -78,7 +78,7 @@
         </li>
       </ul>
     </nav>
-  </nav>
+    </nav>
   <div class="nav-pf-vertical">
     <ul class="list-group">
       <li class="list-group-item ">
@@ -101,8 +101,8 @@
       </li>
     </ul>
   </div>
-  <div class="container-fluid container-pf-nav-pf-vertical collapsed-nav">
-    <div class="cmpsr-header__actions pull-right">
+  <div class="container-fluid container-pf-nav-pf-vertical collapsed-nav cmpsr-grid__wrapper">
+    <div class="cmpsr-header__actions">
         <ul class="list-inline">
             <li>
                 <button class="btn btn-primary" type="button">Save</button>
@@ -123,15 +123,369 @@
             <!-- react-text: 13383 -->Revision 3
             <!-- /react-text --><span class="hidden">0.0.2</span><span class="text-muted">, Total Disk Space: 1,234 KB</span></p>
     </div>
-    <div class="row">
-        <div class="col-sm-7 col-md-8 col-sm-push-5 col-md-push-4 cmpsr-recipe--edit">
-          <div class="panel panel-default">
+        <div class="sidebar-pf cmpsr-recipe__inputs panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Available Components</h3>
+              </div>
+              <div class="panel-body">
+                <div class=" toolbar-pf">
+                        <form class="toolbar-pf-actions">
+                            <div class="form-group toolbar-pf-filter">
+                                <label class="sr-only" for="cmpsr-recipe-input-filter">Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <!-- react-text: 13477 -->Name
+                                            <!-- /react-text --><span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Type</a></li>
+                                            <li><a href="#">Name</a></li>
+                                            <li><a href="#">Version</a></li>
+                                            <li><a href="#">Release</a></li>
+                                            <li><a href="#">Lifecycle</a></li>
+                                            <li><a href="#">Support Level</a></li>
+                                        </ul>
+                                    </div>
+                                    <input type="text" class="form-control" id="cmpsr-recipe-input-filter" placeholder="Filter By Name...">
+                                </div>
+                            </div>
+                            <div class="toolbar-pf-action-right">
+                                <div class="form-group toolbar-pf-settings">
+                                    <button class="btn btn-link btn-settings" type="button" data-toggle="modal" data-target="#cmpsr-recipe__inputs__settings"><span class="pf-icon pficon-settings"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="toolbar-pf-results">
+                                <div class="cmpsr-recipe__inputs__pagination  content-view-pf-pagination"><span><span class="pagination-pf-items-current"><!-- react-text: 13502 -->1<!-- /react-text --><span> - </span>
+                                    <!-- react-text: 13504 -->50
+                                    <!-- /react-text -->
+                                    </span>
+                                    <!-- react-text: 13505 -->of
+                                    <!-- /react-text -->
+                                    <!-- react-text: 13506 -->3856
+                                    <!-- /react-text -->
+                                    </span>
+                                    <ul class="pagination pagination-pf-back">
+                                        <li class="disabled"><a><span class="i fa fa-angle-left"></span></a></li>
+                                    </ul>
+                                    <input type="text" class="pagination-pf-page" value="1" id="cmpsr-recipe__inputs__page" aria-label="Current Page"><span><!-- react-text: 13513 -->of <!-- /react-text --><span class="pagination-pf-pages">78</span></span>
+                                    <ul class="pagination pagination-pf-forward">
+                                        <li><a href="#" data-page="1"><span class="i fa fa-angle-right"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><span class="pficon pficon-close"></span></button><span class="pficon pficon-info"></span><strong>Select components</strong>
+                    <!-- react-text: 13524 -->in this list to add to the recipe.
+                    <!-- /react-text -->
+                </div><!--alert-->
+
+                <div class="list-pf cmpsr-list-pf__compacted list-pf-stacked">
+
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-bordered list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <a href="#" data-toggle="tooltip" data-placement="left"  data-original-title="Remove Component"><span class="fa fa-minus"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
+                                  Release <strong data-item='release'>11.el7</strong><br />
+                                  <a href=&quot;#&quot;>View Details</a>">
+                    <div class="list-pf-container">
+                        <div class="list-pf-content list-pf-content-flex ">
+                            <div class="list-pf-left">
+                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-bordered list-pf-icon-bordered-dotted list-pf-icon-small"></span>
+                            </div>
+                            <div class="list-pf-content-wrapper">
+                                <div class="list-pf-main-content">
+                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
+                                    <div class="list-pf-description ">389 Directory Server (base)</div>
+                                </div>
+
+                            </div>
+                            <div class="list-pf-actions">
+                              <!-- <a href="#" data-toggle="tooltip" data-placement="left"  data-original-title="Remove Component"><span class="fa fa-minus"></span></a> -->
+                            </div>
+                        </div>
+                    </div>
+                  </div><!--list-pf-item-->
+              </div><!--list-pf-->
+              </div><!--panel-body-->
+            </div><!--panel-->
+        <div class="cmpsr-recipe--edit panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Recipe Components</h3>
             </div>
             <div class="panel-body">
-              <div class="row toolbar-pf">
-                  <div class="col-sm-12">
+              <div class="toolbar-pf">
                       <form class="toolbar-pf-actions">
                           <div class="form-group toolbar-pf-filter">
                               <label class="sr-only" for="filter">Name</label>
@@ -186,8 +540,7 @@
                               </div>
                           </div>
                       </form>
-                      <div class="row toolbar-pf-results toolbar-pf-results-none">
-                          <div class="col-sm-12">
+                      <div class="toolbar-pf-results toolbar-pf-results-none">
                               <p>Active filters: </p>
                               <ul class="list-inline">
                                   <li><span class="label label-info"><!-- react-text: 13450 -->Name: nameofthething<!-- /react-text --><a><span class="pficon pficon-close"></span></a>
@@ -202,8 +555,6 @@
                               </ul>
                               <p><a>Clear All Filters</a></p>
                           </div>
-                      </div>
-                  </div>
               </div><!--toolbar-pf-->
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-pf" role="tablist">
@@ -376,8 +727,6 @@
                         <div class="list-pf-container" tabindex="0">
                           <div class="list-pf-content">
                             <div class="container-fluid ">
-                              <div class="row">
-                                <div class="col-md-6">
                                   <dl class="dl-horizontal clearfix">
                                     <dt>Version</dt>
                                     <dd>1.3.5.10</dd>
@@ -400,8 +749,6 @@
                                     <dt>Support Level</dt>
                                     <dd>Standard</dd>
                                   </dl>
-                                </div>
-                                <div class="col-md-6">
                                   <div class="cmpsr-summary-listview">
                                     <p>
                                       <strong>Dependencies</strong>
@@ -426,9 +773,7 @@
                                       </div><!--list-pf-item-->
                                     </div>
                                   </div>
-                                </div>
-                                <div class="col-md-12">
-                                  <div class="cmpsr-summary-listview">
+                                <div class="cmpsr-summary-listview">
                                     <p>
                                       <strong>Errata</strong>
                                       <a href="#" class="pull-right">Show All</a>
@@ -460,7 +805,6 @@
                                   </div>
                                 </div>
                               </div>
-                            </div>
                           </div>
                         </div> <!-- /list-pf-container -->
                       </div> <!-- /list-pf-expansion level 3 -->
@@ -470,8 +814,7 @@
                 </div><!--tab-pane-->
                 <div role="tabpanel" class="tab-pane" id="dependencies">
                   <div>
-                      <div class="row toolbar-pf">
-                          <div class="col-sm-12">
+                      <div class="toolbar-pf">
                               <form class="toolbar-pf-actions">
                                   <div class="form-group"><span class="text-muted">Show: </span>
                                       <!-- react-text: 13942 -->First Level (
@@ -481,8 +824,6 @@
                                       <!-- react-text: 13944 -->)
                                       <!-- /react-text --><span class="text-muted"> | </span><a>Total (---)</a></div>
                               </form>
-                          </div>
-                      </div>
                       <div class="alert alert-warning alert-dismissable hidden"><span class="pficon pficon-warning-triangle-o"></span>
                           <!-- react-text: 13949 -->One or more dependencies have multiple variations that could be used. A default variation was automatically selected. Click a flagged dependency to see other options available.
                           <!-- /react-text -->
@@ -553,142 +894,6 @@
 
           </div> <!--panel-body-->
             </div><!--panel-->
-          </div><!--recipe--->
-
-        <div class="col-sm-5 col-md-4 col-sm-pull-7 col-md-pull-8 sidebar-pf cmpsr-recipe__inputs">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Available Components</h3>
-              </div>
-              <div class="panel-body">
-                <div class="row toolbar-pf">
-
-                    <div class="col-sm-12">
-                        <form class="toolbar-pf-actions">
-                            <div class="form-group toolbar-pf-filter">
-                                <label class="sr-only" for="cmpsr-recipe-input-filter">Name</label>
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <!-- react-text: 13477 -->Name
-                                            <!-- /react-text --><span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Type</a></li>
-                                            <li><a href="#">Name</a></li>
-                                            <li><a href="#">Version</a></li>
-                                            <li><a href="#">Release</a></li>
-                                            <li><a href="#">Lifecycle</a></li>
-                                            <li><a href="#">Support Level</a></li>
-                                        </ul>
-                                    </div>
-                                    <input type="text" class="form-control" id="cmpsr-recipe-input-filter" placeholder="Filter By Name...">
-                                </div>
-                            </div>
-                            <div class="toolbar-pf-action-right">
-                                <div class="form-group toolbar-pf-settings">
-                                    <button class="btn btn-link btn-settings" type="button" data-toggle="modal" data-target="#cmpsr-recipe__inputs__settings"><span class="pf-icon pficon-settings"></span></button>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="row toolbar-pf-results">
-                            <div class="col-sm-12">
-                                <div class="cmpsr-recipe__inputs__pagination  content-view-pf-pagination"><span><span class="pagination-pf-items-current"><!-- react-text: 13502 -->1<!-- /react-text --><span> - </span>
-                                    <!-- react-text: 13504 -->50
-                                    <!-- /react-text -->
-                                    </span>
-                                    <!-- react-text: 13505 -->of
-                                    <!-- /react-text -->
-                                    <!-- react-text: 13506 -->3856
-                                    <!-- /react-text -->
-                                    </span>
-                                    <ul class="pagination pagination-pf-back">
-                                        <li class="disabled"><a><span class="i fa fa-angle-left"></span></a></li>
-                                    </ul>
-                                    <input type="text" class="pagination-pf-page" value="1" id="cmpsr-recipe__inputs__page" aria-label="Current Page"><span><!-- react-text: 13513 -->of <!-- /react-text --><span class="pagination-pf-pages">78</span></span>
-                                    <ul class="pagination pagination-pf-forward">
-                                        <li><a href="#" data-page="1"><span class="i fa fa-angle-right"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="alert alert-info alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><span class="pficon pficon-close"></span></button><span class="pficon pficon-info"></span><strong>Select components</strong>
-                    <!-- react-text: 13524 -->in this list to add to the recipe.
-                    <!-- /react-text -->
-                </div><!--alert-->
-
-                <div class="list-pf cmpsr-list-pf__compacted list-pf-stacked">
-
-                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
-                                  Release <strong data-item='release'>11.el7</strong><br />
-                                  <a href=&quot;#&quot;>View Details</a>">
-                    <div class="list-pf-container">
-                        <div class="list-pf-content list-pf-content-flex ">
-                            <div class="list-pf-left">
-                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-small"></span>
-                            </div>
-                            <div class="list-pf-content-wrapper">
-                                <div class="list-pf-main-content">
-                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
-                                    <div class="list-pf-description ">389 Directory Server (base)</div>
-                                </div>
-
-                            </div>
-                            <div class="list-pf-actions">
-                              <a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Add Component"><span class="fa fa-plus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                  </div><!--list-pf-item-->
-                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
-                                  Release <strong data-item='release'>11.el7</strong><br />
-                                  <a href=&quot;#&quot;>View Details</a>">
-                    <div class="list-pf-container">
-                        <div class="list-pf-content list-pf-content-flex ">
-                            <div class="list-pf-left">
-                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-bordered list-pf-icon-small"></span>
-                            </div>
-                            <div class="list-pf-content-wrapper">
-                                <div class="list-pf-main-content">
-                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
-                                    <div class="list-pf-description ">389 Directory Server (base)</div>
-                                </div>
-
-                            </div>
-                            <div class="list-pf-actions">
-                              <a href="#" data-toggle="tooltip" data-placement="left"  data-original-title="Remove Component"><span class="fa fa-minus"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                  </div><!--list-pf-item-->
-                  <div class="list-pf-item" data-html="true" title="" data-content="Version <strong data-item='version'>1.3.5.10</strong><br />
-                                  Release <strong data-item='release'>11.el7</strong><br />
-                                  <a href=&quot;#&quot;>View Details</a>">
-                    <div class="list-pf-container">
-                        <div class="list-pf-content list-pf-content-flex ">
-                            <div class="list-pf-left">
-                                <span class="fa fa-sticky-note-o list-pf-icon list-pf-icon-bordered list-pf-icon-bordered-dotted list-pf-icon-small"></span>
-                            </div>
-                            <div class="list-pf-content-wrapper">
-                                <div class="list-pf-main-content">
-                                    <div class="list-pf-title "><a href="#" data-item="name">389-ds-base</a></div>
-                                    <div class="list-pf-description ">389 Directory Server (base)</div>
-                                </div>
-
-                            </div>
-                            <div class="list-pf-actions">
-                              <!-- <a href="#" data-toggle="tooltip" data-placement="left"  data-original-title="Remove Component"><span class="fa fa-minus"></span></a> -->
-                            </div>
-                        </div>
-                    </div>
-                  </div><!--list-pf-item-->
-              </div><!--list-pf-->
-              </div><!--panel-body-->
-            </div><!--panel-->
-        </div>
-    </div>
     <div class="modal fade" id="cmpsr-modal-crt-compos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

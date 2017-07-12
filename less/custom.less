@@ -34,6 +34,63 @@ textarea.form-control[readonly] {
    margin-top: 0;
  }
 
+
+.layout-pf.layout-pf-fixed body{
+  padding-top: 0;
+}
+ // grid
+ // -----------------------------------------------
+ // this can be broken up but wanted to seperate this for demoing purposes to show what the grid is doing.
+
+ .cmpsr-grid__wrapper{
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   grid-template-rows: auto auto 1fr;
+   grid-template-areas:
+    "breadcrumb actions"
+    "pageTitle pageTitle"
+    "inputs edit"
+   ;
+   height: 100vh;
+   overflow: hidden;
+   padding-top: 60px;
+  //  border: 1px solid @color-pf-black-300;
+   .panel{
+    padding: 0;
+     border: none;
+     box-shadow: none;
+     margin-bottom:0;
+   }
+ }
+.cmpsr-header__actions{
+  grid-area: actions;
+  justify-self: end;
+}
+.breadcrumb{
+  grid-area: breadcrumb;
+}
+.cmpsr-header__title{
+  grid-area: pageTitle;
+}
+
+.cmpsr-recipe__inputs{
+  grid-area: inputs;
+  grid-row: 3;
+  overflow: auto;
+  min-height: min-content;
+  // display:grid;
+  // grid-template-rows: auto 1fr;
+  // overflow: scroll;
+  //   .panel-body{
+  //     grid-row-start: 2;
+  //     min-height: min-content;
+  //     overflow-y: auto;
+  //   }
+}
+.cmpsr-recipe--edit{
+  grid-area: edit;
+}
+
 /* pagination */
 
 .toolbar-pf-results .content-view-pf-pagination {
@@ -59,14 +116,12 @@ textarea.form-control[readonly] {
 // color is applied to the sidebar.
 .sidebar-pf .toolbar-pf-actions .toolbar-pf-filter {width:auto;}
 .sidebar-pf {
-    padding:0;
+
     .toolbar-pf{
       margin: 0 -20px;
       padding-top: 14px;
     }
-    .panel{
-      margin:0;
-    }
+
     .panel-heading{
       padding:10px 15px;
     }
@@ -87,6 +142,9 @@ textarea.form-control[readonly] {
 // other panel when contents don't fit, so just commenting this out for now.
 
 /*sidebar list view*/
+.cmpsr-recipe__inputs{
+  border-right: 1px solid @color-pf-black-300;
+}
 .cmpsr-recipe__inputs .list-pf {
   margin-top: @line-height-computed;
   // value for original list view is margin-top: 30px; Should we use that here?
@@ -115,14 +173,13 @@ textarea.form-control[readonly] {
 
 /* Recipe contents */
 
-.cmpsr-recipe--edit{
-  padding: 0;
+.cmpsr-recipe__edit{
 
-  .panel-default{
-    border-left: none;
-  }
   .panel-heading{
     margin-bottom: -10px;
+  }
+  .panel-body{
+    padding:15px 20px;
   }
 }
 
@@ -148,7 +205,7 @@ textarea.form-control[readonly] {
 } // TODO: replace .blank-slate-pf with custom styles, since this isn't really a blank slate
 
 .cmpsr-recipe__details--edit {
-  border-top: 1px solid #d1d1d1;
+  border-top: 1px solid @color-pf-black-300;
 }
 .cmpsr-recipe__details--view {
   padding: 10px 35px;
