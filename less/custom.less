@@ -44,8 +44,11 @@ textarea.form-control[readonly] {
 
  .cmpsr-grid__wrapper{
    display: grid;
+   display:-ms-grid;
    grid-template-columns: 1fr 2fr;
+   -ms-grid-columns:1fr 2fr;
    grid-template-rows: auto auto auto 1fr;
+   -ms-grid-rows: auto auto auto 1fr;
    grid-template-areas:
     "breadcrumb actions"
     "pageTitle pageTitle"
@@ -53,51 +56,89 @@ textarea.form-control[readonly] {
     "inputs edit"
    ;
    height: 100vh;
-   overflow: hidden;
+   overflow: auto;
    padding-top: 60px;
    padding-bottom: 20px;
-   .panel{
-    padding: 0;
-     box-shadow: none;
-     margin-bottom:0;
-     min-height: min-content;
+   .cmpsr-panel{
      overflow: auto;
+     min-height: min-content;
+     position: relative;
+     border-bottom:1px solid #ccc;
+      .toolbar-pf-actions{
+        padding:15px 20px 0 20px;
+        margin:0 0 15px 0;
+      }
+      .toolbar-pf{
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 0;
+          .btn-link{border:none;}
+      }
+      .list-pf, .toolbar-pf-results, .nav-tabs{
+        padding: 0 20px;
+      }
+      .list-pf{border-bottom:none;}
   }
-   .panel-body{
-     min-height: min-content;
-     overflow: auto;
-   }
-
  }
 .cmpsr-header__actions{
   grid-area: actions;
   justify-self: end;
+  -ms-grid-column-align:end;
+  -ms-grid-column: 2;
+  -ms-grid-row: 1;
 }
 
 .breadcrumb{
   grid-area: breadcrumb;
+  -ms-grid-column: 1;
+  -ms-grid-row: 1;
 }
 
 .cmpsr-header__title{
   grid-area: pageTitle;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  -ms-grid-row: 2;
 }
 
-.cmpsr-sectionTitle__inputs{
+[class^="cmpsr-panel__title"]{
+  border: 1px solid @color-pf-black-300;
+  background:#f2f2f2;
+  padding:10px 20px;
+  font-size: ceil((@font-size-base * 1.125));
+  color: inherit;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cmpsr-panel__title__inputs{
   grid-area: inputsTitle;
+  -ms-grid-column: 1;
+  -ms-grid-row: 3;
 }
 
-.cmpsr-sectionTitle__edit{
+.cmpsr-panel__title__edit{
   grid-area: editTitle;
+  border-left: none;
+  -ms-grid-column: 2;
+  -ms-grid-row: 3;
 }
 
 .cmpsr-recipe__inputs{
   grid-area: inputs;
   grid-row: 4;
+  border-left: 1px solid @color-pf-black-300;
+  -ms-grid-column: 1;
+  -ms-grid-row: 4;
 }
 .cmpsr-recipe--edit{
   grid-area: edit;
   grid-row: 4;
   border-left:none;
+  border-right: 1px solid #ccc;
+  -ms-grid-column: 2;
+  -ms-grid-row: 4;
 }
 
 /* pagination */
@@ -123,26 +164,28 @@ textarea.form-control[readonly] {
 // If we use the grid, then we might be able to eliminate a lot of this, since
 // the only reason I think it's here is to deal with the fact that a background
 // color is applied to the sidebar.
-.sidebar-pf .toolbar-pf-actions .toolbar-pf-filter {width:auto;}
 .sidebar-pf {
+  .toolbar-pf-actions .toolbar-pf-filter {width:auto;}
+}
+// .sidebar-pf {
 
-    .toolbar-pf{
-      margin: 0 -20px;
-      padding-top: 14px;
-    }
-    .toolbar-pf-actions, .toolbar-pf-results{
-      padding:0 20px;
-    }
-    .panel-heading{
-      padding:10px 15px;
-    }
-    .panel-title{
-      font-size: 14px;
-    }
-    .panel-body{
-      padding:0 20px;
-    }
-}//.sidebar-pf
+    // .toolbar-pf{
+    //   margin: 0 -20px;
+    //   padding-top: 14px;
+    // }
+    // .toolbar-pf-actions, .toolbar-pf-results{
+    //   padding:0 20px;
+    // }
+    // .panel-heading{
+    //   padding:10px 15px;
+    // }
+    // .panel-title{
+    //   font-size: 14px;
+    // }
+    // .panel-body{
+    //   padding:0 20px;
+    // }
+// }//.sidebar-pf
 
 // .cmpsr-recipe-inputs .toolbar-pf-results h5,
 // .cmpsr-recipe-inputs .toolbar-pf-results p,
@@ -166,6 +209,7 @@ textarea.form-control[readonly] {
   // and shift it down, so that it doesn't take up that much extra space
   position: relative;
   top: calc(@line-height-computed / 2);
+  margin: 0 20px;
 }
 
 /*List View*/
@@ -184,23 +228,23 @@ textarea.form-control[readonly] {
 
 /* Recipe contents */
 
-.cmpsr-recipe--edit{
-
-  .panel-heading{
-    margin-bottom: -10px;
-  }
-  .panel-body{
-    padding:0 20px 15px;
-  }
-  .toolbar-pf{
-    margin: 0 -20px;
-    padding-top: 15px;
-  }
-  .toolbar-pf-actions, .toolbar-pf-results{
-    padding: 0 20px;
-  }
-
-}
+// .cmpsr-recipe--edit{
+//
+//   // .panel-heading{
+//   //   margin-bottom: -10px;
+//   // }
+//   // .panel-body{
+//   //   padding:0 20px 15px;
+//   // }
+//   // .toolbar-pf{
+//   //   margin: 0 -20px;
+//   //   padding-top: 15px;
+//   // }
+//   // .toolbar-pf-actions, .toolbar-pf-results{
+//   //   padding: 0 20px;
+//   // }
+//
+// }
 
 .cmpsr-recipe__list {
   .list-pf-main-content {
