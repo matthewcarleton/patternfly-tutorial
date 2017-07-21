@@ -50,7 +50,7 @@ textarea.form-control[readonly] {
    grid-template-rows: auto auto auto 1fr;
    -ms-grid-rows: auto auto auto 1fr;
    grid-template-areas:
-    "breadcrumb actions"
+    "actions actions"
     "pageTitle pageTitle"
     "inputsTitle editTitle"
     "inputs edit"
@@ -81,12 +81,13 @@ textarea.form-control[readonly] {
       .list-pf{border-bottom:none;}
   }
  }
-.cmpsr-header__actions{
+.cmpsr-header{
   grid-area: actions;
-  justify-self: end;
-  -ms-grid-column-align:end;
-  -ms-grid-column: 2;
+  -ms-grid-column: 1;
+  -ms-span-columns:2;
   -ms-grid-row: 1;
+  display: flex;
+  justify-content: space-between;
 }
 
 .breadcrumb{
@@ -102,7 +103,7 @@ textarea.form-control[readonly] {
   -ms-grid-row: 2;
 }
 
-[class^="cmpsr-panel__title"]{
+.cmpsr-panel__title{
   border: 1px solid @color-pf-black-300;
   background:#f2f2f2;
   padding:10px 20px;
