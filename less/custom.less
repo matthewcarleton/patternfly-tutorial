@@ -1,308 +1,515 @@
-// Import patternfly.less and patternfly-additions.less
-@import "patternfly/dist/less/patternfly";
-@import "patternfly/dist/less/patternfly-additions";
-
-// Import patternfly variables due to the -additions separation
-@import "patternfly/dist/less/variables";
-
-// Change the path of fonts and images to be relative to your project
-@font-path: "../node_modules/patternfly/dist/fonts";
-@img-path: "../node_modules/patternfly/dist/img";
-
-// Put your styles here
-/* Composer */
-.navbar-brand {line-height: @navbar-pf-vertical-navbar-brand-min-height;} /* without an icon in the masthead, the logo sits too high relative to other elements */
-[data-toggle] {cursor: pointer;}
-
+[data-toggle] {
+  cursor: pointer;
+}
 /* This is added for the export dialog so that the contents have higher contrast */
 textarea.form-control[readonly] {
   background-color: inherit;
   color: inherit;
 }
-
-/* Recipe Edit page header */
-.cmpsr-header__actions {
-  padding: @breadcrumb-padding-vertical 0 @breadcrumb-padding-vertical @breadcrumb-padding-horizontal
-}
-.cmpsr-header__title {
-  display: flex;
-  align-items: baseline;
-  margin-top: @line-height-computed;
-}
-.cmpsr-header__title__item {
-   margin-right: 10px;
-   margin-top: 0;
- }
-
-
-.layout-pf.layout-pf-fixed body{
-  padding-top: 0;
-}
- // grid
- // -----------------------------------------------
- // this can be broken up but wanted to seperate this for demoing purposes to show what the grid is doing.
-
- .cmpsr-grid__wrapper{
-   display: grid;
-   display:-ms-grid;
-   grid-template-columns: 1fr 2fr;
-   -ms-grid-columns:1fr 2fr;
-   grid-template-rows: auto auto auto 1fr;
-   -ms-grid-rows: auto auto auto 1fr;
-   grid-template-areas:
-    "actions actions"
-    "pageTitle pageTitle"
+/* Recipe Edit layout */
+.cmpsr-grid__wrapper {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1fr 2fr;
+  -ms-grid-columns: 1fr 2fr;
+  grid-template-rows: auto auto 1fr;
+  -ms-grid-rows: auto auto 1fr;
+  grid-template-areas:
+    "header header"
     "inputsTitle editTitle"
-    "inputs edit"
-   ;
-   height: 100vh;
-   overflow: auto;
-   padding-top: 60px;
-   padding-bottom: 20px;
-   .cmpsr-panel{
-     overflow: auto;
-     min-height: min-content;
-     position: relative;
-     border-bottom:1px solid @color-pf-black-300;
-      .toolbar-pf-actions{
-        padding:15px 20px 0 20px;
-        margin:0 0 15px 0;
-      }
-      .toolbar-pf{
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        padding: 0;
-          .btn-link{border:none;}
-      }
-      .list-pf, .toolbar-pf-results, .nav-tabs{
-        padding: 0 20px;
-      }
-      .list-pf{border-bottom:none;}
-  }
- }
-.cmpsr-header{
-  grid-area: actions;
+    "inputs edit";
+  overflow: auto;
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+}
+/* Recipe Edit page header */
+.cmpsr-grid__wrapper .cmpsr-header {
+  grid-area: header;
   -ms-grid-column: 1;
-  -ms-span-columns:2;
+  -ms-span-columns: 2;
   -ms-grid-row: 1;
-  display: flex;
-  justify-content: space-between;
+  margin: 0 20px;
 }
-
-.breadcrumb{
-  grid-area: breadcrumb;
-  -ms-grid-column: 1;
-  -ms-grid-row: 1;
-}
-
-.cmpsr-header__title{
-  grid-area: pageTitle;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  -ms-grid-row: 2;
-}
-
-.cmpsr-panel__title{
-  border: 1px solid @color-pf-black-300;
-  background:#f2f2f2;
-  padding:10px 20px;
-  font-size: ceil((@font-size-base * 1.125));
+/* Recipe Edit panels */
+.cmpsr-panel__title {
+  border: 1px solid #d1d1d1;
+  background: #f2f2f2;
+  padding: 10px 20px;
+  font-size: 14px;
   color: inherit;
   font-weight: bold;
   margin: 0;
 }
-
-.cmpsr-panel__title__inputs{
+.cmpsr-panel__title--sidebar {
   grid-area: inputsTitle;
   -ms-grid-column: 1;
-  -ms-grid-row: 3;
+  -ms-grid-row: 2;
+  margin-right: -1px;
 }
-
-.cmpsr-panel__title__edit{
+.cmpsr-panel__title--main {
   grid-area: editTitle;
-  border-left: none;
+  -ms-grid-column: 2;
+  -ms-grid-row: 2;
+}
+.cmpsr-panel__body {
+  border-width: 0 1px 1px;
+  border-style: solid;
+  border-color: #d1d1d1;
+}
+.cmpsr-panel__body--sidebar {
+  grid-area: inputs;
+  -ms-grid-column: 1;
+  -ms-grid-row: 3;
+  margin-right: -1px;
+}
+.cmpsr-panel__body--main {
+  grid-area: edit;
   -ms-grid-column: 2;
   -ms-grid-row: 3;
 }
-
-.cmpsr-recipe__inputs{
-  grid-area: inputs;
-  grid-row: 4;
-  border-left: 1px solid @color-pf-black-300;
-  -ms-grid-column: 1;
-  -ms-grid-row: 4;
+/* Recipe Edit panel contents */
+.cmpsr-grid__wrapper .cmpsr-panel__body {
+  overflow: auto;
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
+  position: relative;
 }
-.cmpsr-recipe--edit{
-  grid-area: edit;
-  grid-row: 4;
-  border-left:none;
-  border-right: 1px solid @color-pf-black-300;
-  -ms-grid-column: 2;
-  -ms-grid-row: 4;
+.cmpsr-panel__body .toolbar-pf {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+}
+.cmpsr-panel__body .toolbar-pf .btn-link {
+  border: none;
+}
+.cmpsr-panel__body > * {
+  margin: 0 20px;
+}
+.cmpsr-panel__body .toolbar-pf {
+  margin: 0;
+}
+.cmpsr-panel__body .toolbar-pf > * {
+  padding: 0 20px;
+}
+.cmpsr-panel__body  .toolbar-pf .toolbar-pf-actions {
+  padding: 10px 20px 0 20px;
+  margin: 0 0 10px 0;
+}
+.cmpsr-panel__body--view {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.cmpsr-panel__body .list-pf {
+  border-bottom: none;
+}
+ /* Recipe view */
+ .cmpsr-pg__recipe-view {
+   padding: 0 20px;
+ }
+
+ /* page header */
+.cmpsr-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.cmpsr-header > * {
+  margin: 8px 0 0 0;
+  padding: 0
+}
+.cmpsr-header__actions .list-inline {
+  margin: 0;
+}
+.cmpsr-header__actions .list-inline > li {
+  vertical-align: middle;
+}
+.cmpsr-header__actions .list-inline > li:last-child {
+  padding-right: 0;
+}
+.cmpsr-header__actions .list-inline > li:first-child {
+  padding-left: 0;
+}
+.cmpsr-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.cmpsr-title__item {
+  margin: 0 10px 0 0;
+}
+
+/* List view */
+/*.cmpsr-list-pf*/
+.cmpsr-list-pf .list-pf-expansion .list-pf-container {
+  display: block;
+} /* TODO: remove and switch to flexbox for expanded contents */
+.cmpsr-list-pf .list-pf-main-content {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+.cmpsr-list-pf .list-pf-additional-content {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+.cmpsr-list-pf .list-view-pf-additional-info-item {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+@media (min-width: 992px) {
+  .cmpsr-list-pf .list-pf-main-content {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+  .cmpsr-list-pf .list-pf-additional-content {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .cmpsr-list-pf .list-view-pf-additional-info-item {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 /* pagination */
-
 .toolbar-pf-results .content-view-pf-pagination {
-  margin-bottom: 7px;
-  margin-top: 7px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   background-color: transparent;
   border: none;
-  justify-content: flex-end;
-  align-items: baseline;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 .toolbar-pf-results .pagination {
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
-
 .toolbar-pf-results .pagination-pf-page,
 .toolbar-pf-results .pagination.pagination-pf-forward {
   margin-left: 5px;
 }
-
 /* sidebar */
-// If we use the grid, then we might be able to eliminate a lot of this, since
-// the only reason I think it's here is to deal with the fact that a background
-// color is applied to the sidebar.
-.sidebar-pf {
-  .toolbar-pf-actions .toolbar-pf-filter {width:auto;}
+.cmpsr-panel__body--sidebar .toolbar-pf-actions .toolbar-pf-filter {
+  width: auto;
 }
-// .sidebar-pf {
-
-    // .toolbar-pf{
-    //   margin: 0 -20px;
-    //   padding-top: 14px;
-    // }
-    // .toolbar-pf-actions, .toolbar-pf-results{
-    //   padding:0 20px;
-    // }
-    // .panel-heading{
-    //   padding:10px 15px;
-    // }
-    // .panel-title{
-    //   font-size: 14px;
-    // }
-    // .panel-body{
-    //   padding:0 20px;
-    // }
-// }//.sidebar-pf
-
-// .cmpsr-recipe-inputs .toolbar-pf-results h5,
-// .cmpsr-recipe-inputs .toolbar-pf-results p,
-// .cmpsr-recipe-inputs .toolbar-pf-results ul {
-//   line-height: (@grid-gutter-width/1.5);
-// }
-// Spacing is weird for filters in the inputs panel but it's also weird in the
-// other panel when contents don't fit, so just commenting this out for now.
-
-/*sidebar list view*/
-.cmpsr-recipe__inputs{
-  border-right: 1px solid @color-pf-black-300;
+.cmpsr-panel__body--sidebar {
+  background-color: #fafafa;
 }
-.cmpsr-recipe__inputs .list-pf {
-  margin-top: @line-height-computed;
-  // value for original list view is margin-top: 30px; Should we use that here?
+.cmpsr-panel__body--sidebar .list-pf {
+  margin-top: 20px;
 }
-.cmpsr-recipe__inputs .alert {
-  // margin-top: @line-height-computed; //this is the value applied to margin-bottom for bs alerts
-  // But should we do something like this where we take the margin-top of the list / 2
-  // and shift it down, so that it doesn't take up that much extra space
+.cmpsr-panel__body--sidebar .alert {
   position: relative;
-  top: calc(@line-height-computed / 2);
+  top: 10px;
   margin: 0 20px;
 }
-
-/*List View*/
-.blank-slate-pf {margin-top:30px;}
-
 /* Expanded list item contents (i.e. component summary) */
 .list-pf-container .list-pf {
-   max-height: 300px;
-   overflow: auto;
- }
-
- .list-pf-container dd {
-   overflow: hidden;
-   text-overflow: ellipsis;
- }
-
-/* Recipe contents */
-
-// .cmpsr-recipe--edit{
-//
-//   // .panel-heading{
-//   //   margin-bottom: -10px;
-//   // }
-//   // .panel-body{
-//   //   padding:0 20px 15px;
-//   // }
-//   // .toolbar-pf{
-//   //   margin: 0 -20px;
-//   //   padding-top: 15px;
-//   // }
-//   // .toolbar-pf-actions, .toolbar-pf-results{
-//   //   padding: 0 20px;
-//   // }
-//
-// }
-
-.cmpsr-recipe__list {
-  .list-pf-main-content {
-    flex-basis: initial;
-  }
-  .list-pf-additional-content {
-      flex-basis: initial;
-      flex-shrink: 0;
-      justify-content: flex-end;
-  }
+  max-height: 300px;
+  overflow: auto;
+}
+.list-pf-container dd {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 /*Component details*/
-.cmpsr-recipe__details .close {float:none;}
-.cmpsr-recipe__details .form-horizontal {
+.pf-icon-small {
+    font-size: 1.7rem;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.cmpsr-component-details--view {
+  margin-top: 20px;
+}
+.cmpsr-component-details__form {
+  background-color: #ededed;
+  border: 1px solid #24a4e1;
+  border-radius: 1px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+}
+.cmpsr-component-details__form .form-horizontal {
   margin: 15px 0;
-}
-.cmpsr-recipe__details .blank-slate-pf {
-  margin-top: 0;
-  padding: 0;
-} // TODO: replace .blank-slate-pf with custom styles, since this isn't really a blank slate
-
-.cmpsr-recipe__details--edit {
-  border-top: 1px solid @color-pf-black-300;
-}
-.cmpsr-recipe__details--view {
-  padding: 10px 35px;
 }
 
 /* Recipe details page */
-// .list-group-item__separator is used on the Revisions tab
-.list-view-pf .list-group-item__separator, .list-view-pf .list-group-item__separator:hover {
+.list-pf .list-group-item__separator,
+.list-pf .list-group-item__separator:hover {
   background-color: #f7f7f7;
 }
-.list-view-pf .list-group-item__separator .list-view-pf-main-info {
+.list-pf .list-group-item__separator .list-pf-container {
   padding-top: 0;
   padding-bottom: 0;
 }
-
 /* compacted list view */
-// used in sidebar and expanded list items
+/* used in sidebar and expanded list items */
 .cmpsr-list-pf__compacted {
-    margin-bottom:20px;
-    .list-pf-item{
-      background: @color-pf-white;
-      &:hover{
-        background:@color-pf-black-150;
-      }
-    }
-    .list-pf-container{
-      padding:5px 10px;
-      .list-pf-container & {
-        border-top-width: 0; // needed for when list is displayed in expanded list item (is this a bug with PF css?)
-      }
-    }
+  margin-bottom: 20px;
 }
-
-.list-pf-icon-bordered-dotted{
+.cmpsr-list-pf__compacted .list-pf-item {
+  background: #fff;
+}
+.cmpsr-list-pf__compacted .list-pf-item:hover {
+  background: #f5f5f5;
+}
+.cmpsr-list-pf__compacted .list-pf-container {
+  padding: 5px 10px;
+}
+.list-pf-container .cmpsr-list-pf__compacted .list-pf-container {
+  border-top-width: 0;
+}
+.list-pf-icon-bordered-dotted {
   border-style: dotted;
 }
+
+/* tab contents */
+.tab-container {
+    padding: 20px 0;
+}
+
+/* toolbar */
+.toolbar-pf-actions .toolbar-pf-filter.form-group {
+  padding-left: 20px;
+}
+.toolbar-pf-actions .form-group:first-child {
+  padding-left: 0;
+}
+
+/* ------------------------------- */
+/* modifications to patternfly css */
+
+/* masthead */
+/* without an icon in the masthead, the logo sits too high relative to other elements */
+.navbar-brand {
+  line-height: 35px;
+}
+
+/* empty state */
+.blank-slate-pf {
+  margin-top: 30px;
+}
+
+/* list-pf */
+/* current styles do not have a fixed width for the right/down arrows which
+   causes the contents to shift right a few pixels on expansion */
+
+.list-pf-chevron .fa {
+  width: 22px;
+  text-align: center;
+}
+.list-pf-title .text-muted {
+  font-weight: normal;
+}
+
+/* nav-tabs-pf */
+/* current tabs component cannot be updated to include the .nav-tabs-pf class
+   so the pf styles are added and modified so that the component can be modified
+   by wrapping it with .nav-tabs-pf */
+
+ .nav-tabs-pf .nav-tabs > li {
+   margin-bottom: 0;
+ }
+ .nav-tabs-pf .nav-tabs > li.active > a:before {
+   background: #0088ce;
+   bottom: -1px;
+   content: "";
+   display: block;
+   height: 2px;
+   left: 15px;
+   position: absolute;
+   right: 15px;
+ }
+ .nav-tabs-pf .nav-tabs > li.active > a,
+ .nav-tabs-pf .nav-tabs > li.active > a:active,
+ .nav-tabs-pf .nav-tabs > li.active > a:focus,
+ .nav-tabs-pf .nav-tabs > li.active > a:hover {
+   background-color: transparent;
+   border: 0 !important;
+   color: #0088ce;
+ }
+ .nav-tabs-pf .nav-tabs > li.active > a:before,
+ .nav-tabs-pf .nav-tabs > li.active > a:active:before,
+ .nav-tabs-pf .nav-tabs > li.active > a:focus:before,
+ .nav-tabs-pf .nav-tabs > li.active > a:hover:before {
+   background: #0088ce;
+ }
+ .nav-tabs-pf .nav-tabs > li:first-child > a {
+   padding-left: 0;
+ }
+ .nav-tabs-pf .nav-tabs > li:first-child > a:before {
+   left: 0 !important;
+ }
+ .nav-tabs-pf .nav-tabs > li > a {
+   border: 0;
+   line-height: 1;
+   margin-right: 0;
+   padding-bottom: 10px;
+   padding-top: 10px;
+ }
+ .nav-tabs-pf .nav-tabs > li > a:active:before,
+ .nav-tabs-pf .nav-tabs > li > a:focus:before,
+ .nav-tabs-pf .nav-tabs > li > a:hover:before {
+   background: #bbb;
+   bottom: -1px;
+   content: "";
+   display: block;
+   height: 2px;
+   left: 15px;
+   position: absolute;
+   right: 15px;
+ }
+ .nav-tabs-pf .nav-tabs > li > .dropdown-menu {
+   left: 15px;
+   margin-top: 1px;
+ }
+ .nav-tabs-pf .nav-tabs > li > .dropdown-menu.pull-right {
+   left: auto;
+   right: 15px;
+ }
+ .nav-tabs-pf .nav-tabs .open > a,
+ .nav-tabs-pf .nav-tabs .open > a:hover,
+ .nav-tabs-pf .nav-tabs .open > a:focus {
+   background-color: transparent;
+ }
+
+ .nav-tabs .badge {
+   display: inline;
+ }
+
+
+
+.cmpsr-list-changelog {
+  &-timestamp{
+    width:100%;
+    background:#f1f1f1;
+    padding:5px 15px;
+    border-top: 1px solid #ededed;
+  }
+  .list-pf {
+      &-item {
+      .list-pf-chevron {
+        margin-left: -25px;
+        margin-right: 0;
+          &+.list-pf-content {
+            border-left:none;
+            padding-left: 5px;
+          }
+      }
+    }//&-item
+    &-container{
+      padding-left: 30px;
+    }
+  }//list-pf
+  .list-pf-additional-content {
+      justify-content: flex-end;
+      @media (max-width: 992px) {
+        margin-top: 15px;
+        justify-content: flex-start;
+      }
+      &-item {
+        align-items: flex-start;
+        display: inline-block;
+        display: flex;
+        max-width:100%;
+        flex:0 1 33%;
+        text-align: center;
+        flex-direction: column;
+          strong {
+            font-size: 13px;
+            line-height: 1em;
+          }
+
+        &:last-child {
+          margin-right: 0;
+        }
+        @media (min-width: 992px) {
+          align-items: center;
+        }
+      } //item
+  }//content
+}
+.cmpsr-changelog{
+  &--saved {
+    .list-pf-expansion {
+      .list-pf-container {
+        padding-left:0;
+        padding-right:0;
+      }
+    }
+  }//saved
+  &-icon{
+    font-size: 16px;
+    margin-right: 5px;
+  }
+}
+
+.cmpsr-changelog-actions {
+  max-height: 250px;
+  overflow-y: scroll;
+    .table {
+      thead {
+        background: #fff;
+      }
+      th,td {
+        &:nth-last-child(2){
+          text-align:right;
+          padding-right: 0;
+        }
+        &:last-child {
+          max-width: 20px;
+          padding-left:0;
+          padding-right:0;
+          text-align:center;
+        }
+      }//th,td
+    }//table
+}//.cmpsr-panel-actions
