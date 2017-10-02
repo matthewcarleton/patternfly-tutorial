@@ -206,7 +206,7 @@
 
                               <div class="list-pf-main-content">
                                 <div class="list-pf-title">
-                                  <i class="fa fa-download cmpsr-changelog-icon" aria-hidden="true"></i>
+                                  <i class="fa fa-download cmpsr-changelog-icon cmpsr-changelog-icon--downloaded" aria-hidden="true"></i>
                                   Composition Downloaded
                                 </div>
                                 <div class="list-pf-description"><a href="#">httpd-server-rev1-iso</a> based on version 2</div>
@@ -240,7 +240,7 @@
                           <div class="list-pf-content-wrapper">
                               <div class="list-pf-main-content">
                                   <div class="list-pf-title">
-                                    <i class="fa fa-check-circle-o cmpsr-changelog-icon" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle-o cmpsr-changelog-icon cmpsr-changelog-icon--saved" aria-hidden="true"></i>
                                     Recipe Saved
                                   </div>
                                   <div class="list-pf-description">Lorem ipsum dolor sit amet, consectetur &hellip;</div>
@@ -357,7 +357,7 @@
 
                               <div class="list-pf-main-content">
                                 <div class="list-pf-title">
-                                  <i class="pficon pficon-add-circle-o cmpsr-changelog-icon" aria-hidden="true"></i>
+                                  <i class="pficon pficon-add-circle-o cmpsr-changelog-icon cmpsr-changelog-icon--created" aria-hidden="true"></i>
                                   Revision Created
                                 </div>
                                 <div class="list-pf-description">Revision 2 automatically created</div>
@@ -382,7 +382,7 @@
 
                               <div class="list-pf-main-content">
                                 <div class="list-pf-title">
-                                  <i class="pficon pficon-add-circle-o cmpsr-changelog-icon" aria-hidden="true"></i>
+                                  <i class="pficon pficon-add-circle-o cmpsr-changelog-icon cmpsr-changelog-icon--created" aria-hidden="true"></i>
                                   Composition Created
                                 </div>
                                 <div class="list-pf-description"><a href="#">httpd-server-rev1-iso</a> based on revision 1</div>
@@ -414,7 +414,7 @@
 
                               <div class="list-pf-main-content">
                                 <div class="list-pf-title">
-                                <i class="pficon pficon-chat cmpsr-changelog-icon" aria-hidden="true"></i>
+                                <i class="pficon pficon-chat cmpsr-changelog-icon cmpsr-changelog-icon--comment" aria-hidden="true"></i>
                                   Comment Added
                                 </div>
                                 <div class="list-pf-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
@@ -435,17 +435,19 @@
 
                 <div class="list-pf-item">
                   <div class="list-pf-container">
-                    <div class="list-pf-chevron">
-                      <span class="fa fa-angle-right"></span>
-                    </div>
                     <div class="list-pf-content list-pf-content-flex">
                         <div class="list-pf-content-wrapper">
                             <div class="list-pf-main-content">
                                 <div class="list-pf-title">
-                                  <i class="pficon pficon-chat cmpsr-changelog-icon" aria-hidden="true"></i>
+                                  <i class="pficon pficon-chat cmpsr-changelog-icon cmpsr-changelog-icon--comment" aria-hidden="true"></i>
                                   Comment Added
                                 </div>
-                                <div class="list-pf-description">Lorem ipsum dolor sit amet, consectetur &hellip;</div>
+                                <div class="list-pf-description">Lorem ipsum dolor sit amet, consectetur <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">&hellip;</a>
+                                  <div class="collapse" id="collapseExample">
+                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                  </div>
+                                </div>
+
                             </div>
                             <div class="list-pf-additional-content">
                               <div class="list-pf-additional-content-item list-pf-additional-content-item-stacked">
@@ -458,16 +460,6 @@
                         </div>
                     </div>
                   </div>
-
-                  <!-- expansion --->
-                  <div class="list-pf-expansion collapse">
-                    <div class="list-pf-container" tabindex="0">
-                      <div class="list-pf-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut iste perspiciatis dignissimos voluptate, voluptatibus tenetur ipsa sed eligendi soluta sunt! Pariatur saepe et nam iusto, suscipit provident hic dolor voluptates.
-                      </div>
-                    </div> <!-- /list-pf-container -->
-                  </div> <!-- /list-pf-expansion level 3 -->
-
                 </div> <!--list-pf-item -->
 
                 <div class="list-pf-item">
@@ -478,7 +470,7 @@
 
                               <div class="list-pf-main-content">
                                 <div class="list-pf-title">
-                                  <i class="pficon pficon-add-circle-o cmpsr-changelog-icon" aria-hidden="true"></i>
+                                  <i class="pficon pficon-add-circle-o cmpsr-changelog-icon cmpsr-changelog-icon--created" aria-hidden="true"></i>
                                   Recipe Created
                                 </div>
                                 <div class="list-pf-description">Based on revision 1 of "recipe name"</div>
